@@ -1,19 +1,19 @@
 import React from "react";
 import './App.css';
+import axios from "axios";
+
+const baseURL = "https://frontend-take-home.fetchrewards.com/form";
 
 function App() {
-  // function get() {
-  //   axios.get("https://frontend-take-home.fetchrewards.com/form").then(({data}) => {
-  //     setText(JSON.stringify(data));
-  //   });
-  // }
+  const [form, setForm] = React.useState(null);
 
-  // function post() {
-  //   axios.post("https://frontend-take-home.fetchrewards.com/form").then(({}) => {
-  //     setText(JSON.stringify(data));
-  //   })
-  // }
+  React.useEffect(() => {
+    axios.get(baseURL).then((response) => {
+      setForm(response.data)
+    })
+  }, []);
 
+  // console.log(form)
   const [values, setValues] = React.useState({
     password: "",
     showPassword: false,
@@ -33,10 +33,10 @@ function App() {
             <input type={values.showPassword ? "text" : "password"} className="input"/>
           </label>
           <label className="label"> Occupation
-            <input type="text" className="input"/>
+            <select className="input"></select>
           </label>
           <label className="label"> State
-            <input type="text" className="input"/>
+            <select className="input"></select>
           </label>
           <button type="submit" className="submitButton">Submit</button>
         </form>
