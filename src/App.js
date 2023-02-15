@@ -40,8 +40,12 @@ function App() {
           <label className="label"> Password
             <input type={values.showPassword ? "text" : "password"} className="input"/>
           </label>
-          <Dropdown />
-          <Dropdown />
+          <label className="label">Occupation
+            <Dropdown />
+          </label>
+          <label className="label">State
+            <Dropdown />
+          </label>
           <button type="submit" className="submitButton">Submit</button>
         </form>
       </header>
