@@ -9,20 +9,13 @@ function App() {
   const [form, setForm] = React.useState(null);
 
   React.useEffect(() => {
-    axios.get(baseURL).then((response) => {
-      setForm(response.data)
-    })
-  }, []);
-
+axios.get(baseURL).then((response) => {
+  setForm(response.data);
+  })
+    }, []);
   console.log(form)
-  // const fetchUsers = () => {
-  //   axios.get("https://frontend-take-home.fetchrewards.com/form").then(result => {
-  //     const res =  result.data.data;
-  //     return res;
-  //   });
-  // }
-  // console.log(fetchUsers);
-  const [values, setValues] = React.useState({
+
+  const [values] = React.useState({
     password: "",
     showPassword: false,
   });
@@ -41,10 +34,14 @@ function App() {
             <input type={values.showPassword ? "text" : "password"} className="input"/>
           </label>
           <label className="label">Occupation
-            <Dropdown />
+            <select className="input">
+              <option>{}</option>
+            </select>
           </label>
           <label className="label">State
-            <Dropdown />
+            <select className="input">
+              <option>{}</option>
+            </select>
           </label>
           <button type="submit" className="submitButton">Submit</button>
         </form>
